@@ -3,3 +3,8 @@
 ################################################################################
 
 /file2objects/.vs/file2objects/v14/.suo
+/file2objects/bin/Debug
+/file2objects/obj/Debug
+/file2objects/packages/EntityFramework.5.0.0
+/tests/bin/Debug
+/tests/obj/Debug
