@@ -23,7 +23,7 @@ namespace tests
             var reader = new FileReader();
             var lines = reader.GetLinesFromFile(@"..\..\Resources\OrderDetails.txt");
             var splited = reader.GetLinesSplitedBy(lines, '\t');
-            var details = reader.GetInstances<OrderDetail>(splited, new file2objects.MainMapper<OrderDetail>()).ToList();
+            var details = reader.GetInstances<OrderDetail>(splited, new MainMapper<OrderDetail>()).ToList();
             Assert.AreEqual(details.FirstOrDefault().Description, "Cake");
         }
         [TestMethod]
@@ -38,43 +38,43 @@ namespace tests
         [TestMethod]
         public void ShouldGet5EntriesUsingSyntacticImprovements()
         {
-            var orderDetails = PlainTextRetriever.From(@"..\..\Resources\OrderDetails.txt").DelimitBy('\t').GetAListOf<OrderDetail>(new MapperConfiguration { DefaultPropertyReader = PropertyReader.SkipHeaders });
+            var orderDetails = PlainTextReader.From(@"..\..\Resources\OrderDetails.txt").DelimitBy('\t').GetAListOf<OrderDetail>(new MapperConfiguration { DefaultPropertyReader = PropertyReader.SkipHeaders });
             Assert.AreEqual(5, orderDetails.Count);
         }
         [TestMethod]
         public void ShouldGet5EntriesUsingSyntacticSugarByTab()
         {
-            var orderDetails = PlainTextRetriever.From(@"..\..\Resources\OrderDetails.txt").DelimitBy(ColumnDelimiter.Tab).GetAListOf<OrderDetail>(new MapperConfiguration { DefaultPropertyReader = PropertyReader.SkipHeaders });
+            var orderDetails = PlainTextReader.From(@"..\..\Resources\OrderDetails.txt").DelimitBy(ColumnDelimiter.Tab).GetAListOf<OrderDetail>(new MapperConfiguration { DefaultPropertyReader = PropertyReader.SkipHeaders });
             Assert.AreEqual(5, orderDetails.Count);
         }
         [TestMethod]
         public void ShouldGet5EntriesUsingSyntacticSugarByComma()
         {
-            var orderDetails = PlainTextRetriever.From(@"..\..\Resources\SameByComma.txt").DelimitBy(ColumnDelimiter.Comma).GetAListOf<OrderDetail>();
+            var orderDetails = PlainTextReader.From(@"..\..\Resources\SameByComma.txt").DelimitBy(ColumnDelimiter.Comma).GetAListOf<OrderDetail>();
             Assert.AreEqual(5, orderDetails.Count);
         }
         [TestMethod]
         public void ShouldGet5EntriesUsingSyntacticSugarByPipe()
         {
-            var orderDetails = PlainTextRetriever.From(@"..\..\Resources\SameByPipes.txt").DelimitBy(ColumnDelimiter.Pipe).GetAListOf<OrderDetail>();
+            var orderDetails = PlainTextReader.From(@"..\..\Resources\SameByPipes.txt").DelimitBy(ColumnDelimiter.Pipe).GetAListOf<OrderDetail>();
             Assert.AreEqual(5, orderDetails.Count);
         }
         [TestMethod]
         public void ShouldGet5EntriesUsingSyntacticSugarByWhitespace()
         {
-            var orderDetails = PlainTextRetriever.From(@"..\..\Resources\SameByWhitespace.txt").DelimitBy(ColumnDelimiter.WhiteSpace).GetAListOf<OrderDetail>(new MapperConfiguration { DefaultPropertyReader = PropertyReader.ReadAllFile });
+            var orderDetails = PlainTextReader.From(@"..\..\Resources\SameByWhitespace.txt").DelimitBy(ColumnDelimiter.WhiteSpace).GetAListOf<OrderDetail>(new MapperConfiguration { DefaultPropertyReader = PropertyReader.ReadAllFile });
             Assert.AreEqual(5, orderDetails.Count);
         }
         [TestMethod]
         public void ShouldGet5EntriesFirstRowContainsFieldNames()
         {
-            var orderDetails = PlainTextRetriever.From(@"..\..\Resources\UnsortedByPipes.txt").DelimitBy(ColumnDelimiter.Pipe).GetAListOf<OrderDetail>(new MapperConfiguration { DefaultPropertyReader = PropertyReader.UseHeadersToInferProperties });
+            var orderDetails = PlainTextReader.From(@"..\..\Resources\UnsortedByPipes.txt").DelimitBy(ColumnDelimiter.Pipe).GetAListOf<OrderDetail>(new MapperConfiguration { DefaultPropertyReader = PropertyReader.UseHeadersToInferProperties });
             Assert.AreEqual(5, orderDetails.Count);
         }
         [TestMethod]
         public void ShouldGet5ByUsingAdvancedMapper()
         {
-            var orderDetails = PlainTextRetriever.From(@"..\..\Resources\SameByComma.txt")
+            var orderDetails = PlainTextReader.From(@"..\..\Resources\SameByComma.txt")
                 .DelimitBy(ColumnDelimiter.Comma)
                 .GetAListOf<OrderDetail>(
                 new MapperConfiguration
@@ -88,7 +88,7 @@ namespace tests
         [TestMethod]
         public void ShouldGet2Tokens()
         {
-            var tokens = PlainTextRetriever.From(@"..\..\Resources\TokeAndIdTuples.txt")
+            var tokens = PlainTextReader.From(@"..\..\Resources\TokeAndIdTuples.txt")
                 .DelimitBy(ColumnDelimiter.Pipe)
                 .GetAListOf<Guid>(
                 new MapperConfiguration
@@ -103,19 +103,19 @@ namespace tests
         [TestMethod]
         public void ShouldGetActivityLogs()
         {
-            var tokens = PlainTextRetriever.From(@"..\..\Resources\TokeAndIdTuples.txt")
+            var tokens = PlainTextReader.From(@"..\..\Resources\TokeAndIdTuples.txt")
                 .DelimitBy(ColumnDelimiter.Pipe)
                 .GetAListOf<ActivityLog>();
             Assert.AreEqual(2, tokens.Count);
         }
 
         [TestMethod]
+        [ExpectedException(typeof(InvalidCastException))]
         public void ShouldDetectError()
         {
-            var tokens = PlainTextRetriever.From(@"..\..\Resources\InvalidLog.txt")
+            var tokens = PlainTextReader.From(@"..\..\Resources\InvalidLog.txt")
                 .DelimitBy(ColumnDelimiter.Pipe)
                 .GetAListOf<ActivityLog>();
-            Assert.AreEqual(3, tokens.Count);
         }
     }
 }

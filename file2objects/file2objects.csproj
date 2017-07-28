@@ -41,11 +41,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BaseRetriever.cs" />
+    <Compile Include="ReadCommand.cs" />
+    <Compile Include="ReadConfigurator.cs" />
+    <Compile Include="WriteCommand.cs" />
+    <Compile Include="WriteConfigurator.cs" />
     <Compile Include="BooleanResolver.cs" />
     <Compile Include="ByteResolver.cs" />
     <Compile Include="ColumnDelimiter.cs" />
     <Compile Include="DecimalResolver.cs" />
     <Compile Include="DoubleResolver.cs" />
+    <Compile Include="FileWriter.cs" />
     <Compile Include="GuidResolver.cs" />
     <Compile Include="MainMapper.cs" />
     <Compile Include="FileReader.cs" />
@@ -55,7 +60,8 @@
     <Compile Include="MapperConfiguration.cs" />
     <Compile Include="NullResolver.cs" />
     <Compile Include="ParseResolver.cs" />
-    <Compile Include="PlainTextRetriever.cs" />
+    <Compile Include="PlainTextReader.cs" />
+    <Compile Include="PlainTextWriter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="PropertyReader.cs" />
     <Compile Include="StringResolver.cs" />
