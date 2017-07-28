@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>jalsu.file2objects.v1</id>
+    <version>1.0.0</version>
+    <title>file2objects</title>
+    <authors>jalsu</authors>
+    <owners>jalsu</owners>
+    <licenseUrl>https://opensource.org/licenses/MS-PL</licenseUrl>
+    <projectUrl>https://github.com/asjuan/file2objects</projectUrl>
+    <requireLicenseAcceptance>true</requireLicenseAcceptance>
+    <description>Read a file and map to list of objects in one go</description>
+    <releaseNotes>PlainTextReader and PlainTextWriter objects to interact with both files and objects</releaseNotes>
+    <copyright>Copyright 2017</copyright>
+    <tags>File I/O TDD BDD</tags>
+  </metadata>
+</package>
