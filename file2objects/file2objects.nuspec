@@ -12,6 +12,6 @@
     <description>Read a file and map to list of objects in one go</description>
     <releaseNotes>PlainTextReader and PlainTextWriter objects to interact with both files and objects</releaseNotes>
     <copyright>Copyright 2017</copyright>
-    <tags>File I/O TDD BDD</tags>
+    <tags>Files I/O TDD BDD</tags>
   </metadata>
 </package>
