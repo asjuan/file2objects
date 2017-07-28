@@ -8,12 +8,13 @@ Reading from a txt file
 
 Suppose OrderDetails files has following information
 
-ID	DESC	ORDERID	QTTY	PRIORITY	PRICE
-1	Cake	1020	2	TRUE	5.0
-2	Coffee	1020	1	FALSE	1.0
-3	Bagel	1021	3	FALSE	1.5
-4	Pizza	1099	1	TRUE	2.5
-5	Soda	1103	1	FALSE	0.52
+|ID|DESC  |ORDERID|QTTY|PRIORITY|PRICE|
+|--|------|-------|----|--------|-----|
+| 1|Cake  |   1020|   2|TRUE    |  5.0|
+| 2|Coffee|   1020|   1|FALSE   |  1.0|
+| 3|Bagel |   1021|   3|FALSE   |  1.5|
+| 4|Pizza |   1099|   1|TRUE    |  2.5|
+| 5|Soda  |   1103|   1|FALSE   | 0.52|
 
 and OrderDetail class has following structure
 
@@ -33,7 +34,9 @@ Creating a list of OrderDetails can be written as follows
 
 ```
 var orderDetails = PlainTextReader
-                     .From(@"..\..\Resources\OrderDetails.txt").DelimitBy(ColumnDelimiter.Tab).GetAListOf<OrderDetail>(new MapperConfiguration { DefaultPropertyReader = PropertyReader.SkipHeaders });
+                     .From(@"..\..\Resources\OrderDetails.txt")
+                     .DelimitBy(ColumnDelimiter.Tab)
+                     .GetAListOf<OrderDetail>(new MapperConfiguration { DefaultPropertyReader = PropertyReader.SkipHeaders });
 
 ```
 
