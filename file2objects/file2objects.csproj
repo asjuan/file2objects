@@ -9,8 +9,9 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>file2objects</RootNamespace>
     <AssemblyName>file2objects</AssemblyName>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -43,6 +44,9 @@
     <Compile Include="BaseRetriever.cs" />
     <Compile Include="ReadCommand.cs" />
     <Compile Include="ReadConfigurator.cs" />
+    <Compile Include="SqlFileWriter.cs" />
+    <Compile Include="SqlInsertsCommand.cs" />
+    <Compile Include="SqlInsertsWriter.cs" />
     <Compile Include="WriteCommand.cs" />
     <Compile Include="WriteConfigurator.cs" />
     <Compile Include="BooleanResolver.cs" />
@@ -66,6 +70,9 @@
     <Compile Include="PropertyReader.cs" />
     <Compile Include="StringResolver.cs" />
     <Compile Include="Utils.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Readme.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

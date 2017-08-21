@@ -14,7 +14,7 @@ can invoke it. From my experience I know that it requires effort to maintain tha
 by storing sample data in a plain text file and mapping that data to a concrete class, so new instances can be retrieved just as you do with a factory.
 
 Usage: 
-            var orderDetails = PlainTextRetriever.From(@"..\..\Resources\OrderDetails.txt").DelimitBy(ColumnDelimiter.Tab).GetAListOf<OrderDetail>();
+            var orderDetails = PlainTextReader.From(@"..\..\Resources\OrderDetails.txt").DelimitBy(ColumnDelimiter.Tab).GetAListOf<OrderDetail>();
             Assert.AreEqual(orderDetails.Count, 5);
 
 The file OrderDetails.txt contain tab delimited data.

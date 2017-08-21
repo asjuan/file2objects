@@ -10,7 +10,7 @@ namespace tests
     [TestClass]
     public class WriterTests
     {
-        private OrderDetail[] _details =new OrderDetail[1] {
+        private OrderDetail[] _details = new OrderDetail[1] {
             new OrderDetail
                 {
                     Id = 1,
@@ -52,6 +52,29 @@ namespace tests
             var reader = new FileReader();
             var lines = reader.GetLinesFromFile(path);
             Assert.AreEqual(2, lines.ToList().Count);
+        }
+
+        [TestMethod]
+        public void ShouldCreateSqlInserts()
+        {
+            _details = new OrderDetail[] {
+                new OrderDetail {
+                    Id = 1,
+                    Description = "Apple",
+                    OrderId= 0,
+                    Quantity = 2,
+                    Price = 3
+                },
+                new OrderDetail {
+                    Id = 1,
+                    Description = "Pear",
+                    OrderId= 0,
+                    Quantity = 4,
+                    Price =1
+                }
+            };
+            var sql = SqlInsertsWriter.From(_details).ToString<OrderDetail>("MyTable");
+            Assert.IsNotNull(sql);
         }
     }
 }
