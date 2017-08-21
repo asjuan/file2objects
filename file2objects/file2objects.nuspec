@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
 <package >
   <metadata>
-    <id>jalsu.file2objects.v1</id>
-    <version>1.0.0</version>
+    <id>jalsu.file2objects</id>
+    <version>1.0.1</version>
     <title>file2objects</title>
     <authors>jalsu</authors>
     <owners>jalsu</owners>

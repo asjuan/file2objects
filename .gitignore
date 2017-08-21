@@ -25,3 +25,7 @@ file2objects/jalsu.file2objects.v1.1.0.0.nupkg
 file2objects/obj/Release/file2objects.dll
 file2objects/obj/Release/file2objects.pdb
 /file2objects/.vs/file2objects/v15
+/tests/obj/Release
+/tests/bin/Release
+/file2objects/jalsu.file2objects.1.0.1.nupkg
+/file2objects/jalsu.file2objects.v1.1.0.1.nupkg
