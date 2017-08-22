@@ -23,4 +23,4 @@ Important: the first row contains the headers. The sequence of the columns match
   
 Known issues
 
-It doesn´t detect dates. It only get lists out of text files. If the format is not met the library crashes.
+If the format is not met the library will crash.

@@ -4,14 +4,14 @@ namespace file2objects
 {
     public class SqlInsertsCommand
     {
-        private SqlFileWriter _writer;
+        private SqlStringWriter _writer;
 
-        public SqlInsertsCommand(SqlFileWriter writer)
+        public SqlInsertsCommand(SqlStringWriter writer)
         {
             _writer = writer;
         }
 
-        public string ToString<T>(string tableName)
+        public string ToStatement<T>(string tableName)
         {
             _writer.ToSequence<T>(tableName);
             StringBuilder builder = new StringBuilder();

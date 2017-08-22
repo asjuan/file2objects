@@ -8,7 +8,7 @@ using tests.DTO;
 namespace tests
 {
     [TestClass]
-    public class WriterTests
+    public class SQLizemeTests
     {
         private OrderDetail[] _details = new OrderDetail[1] {
             new OrderDetail
@@ -73,8 +73,24 @@ namespace tests
                     Price =1
                 }
             };
-            var sql = SqlInsertsWriter.From(_details).ToString<OrderDetail>("MyTable");
+            var sql = SQLizeme.From(_details).ToStatement<OrderDetail>("MyTable");
             Assert.IsNotNull(sql);
+        }
+
+        [TestMethod]
+        public void ShouldReplaceNullValuesWithNullWord()
+        {
+            _details = new OrderDetail[] {
+                new OrderDetail {
+                    Id = 1,
+                    Description = null,
+                    OrderId= 0,
+                    Quantity = 2,
+                    Price = 3
+                } };
+            var sql = SQLizeme.From(_details).ToStatement<OrderDetail>("MyTable");
+            Assert.IsTrue(sql.StartsWith("Insert into"));
+            Assert.IsTrue(sql.Contains("NULL"));
         }
     }
 }

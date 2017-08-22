@@ -44,9 +44,9 @@
     <Compile Include="BaseRetriever.cs" />
     <Compile Include="ReadCommand.cs" />
     <Compile Include="ReadConfigurator.cs" />
-    <Compile Include="SqlFileWriter.cs" />
+    <Compile Include="SqlStringWriter.cs" />
     <Compile Include="SqlInsertsCommand.cs" />
-    <Compile Include="SqlInsertsWriter.cs" />
+    <Compile Include="SQLizeme.cs" />
     <Compile Include="WriteCommand.cs" />
     <Compile Include="WriteConfigurator.cs" />
     <Compile Include="BooleanResolver.cs" />
@@ -73,6 +73,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Readme.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="README.md" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
