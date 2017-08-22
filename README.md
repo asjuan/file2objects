@@ -54,3 +54,20 @@ To persist a sample of 5 elements and save it as a file, write the following:
                 .DelimitBy(ColumnDelimiter.Tab)
                 .SaveAs<OrderDetail>(path);
 ```
+
+SQLizeme object
+===============
+
+This library can also help to populate a table from a collection of objects. 
+
+```
+//detail comes with following instance
+//  new OrderDetail {
+//    Id = 1,
+      Description = "Pear",
+      OrderId= 0,
+      Quantity = 4,
+      Price =1
+//  }
+var sql = SQLizeme.From(_details).ToStatement<OrderDetail>("MyTable");
+```
