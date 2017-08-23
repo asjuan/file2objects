@@ -58,7 +58,7 @@ namespace file2objects
                 }
                 else if (fields[counter].IsQuoted)
                 {
-                    values += "'" + value + "'";
+                    values += "N'" + value + "'";
                 }
                 else
                 {
