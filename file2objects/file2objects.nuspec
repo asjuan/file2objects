@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>jalsu.file2objects</id>
-    <version>1.0.1</version>
+    <version>1.0.3</version>
     <title>file2objects</title>
     <authors>jalsu</authors>
     <owners>jalsu</owners>
@@ -10,7 +10,7 @@
     <projectUrl>https://github.com/asjuan/file2objects</projectUrl>
     <requireLicenseAcceptance>true</requireLicenseAcceptance>
     <description>Read a file and map to list of objects in one go</description>
-    <releaseNotes>PlainTextReader and PlainTextWriter objects to interact with both files and objects</releaseNotes>
+    <releaseNotes>PlainTextReader, SQLizeme and PlainTextWriter utility objects to interact with collections of custom objects</releaseNotes>
     <copyright>Copyright 2017</copyright>
     <tags>Files I/O TDD BDD</tags>
   </metadata>

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 
@@ -6,12 +7,12 @@ namespace file2objects
 {
     public class FileWriter
     {
-        private object[] _instances;
+        private IEnumerable<object> _instances;
         private char _delimiter;
         private Action<string> _writeCol;
         private Action<string> _endCol;
 
-        public FileWriter(object[] instances)
+        public FileWriter(IEnumerable<object> instances)
         {
             _instances = instances;
         }
@@ -19,7 +20,7 @@ namespace file2objects
         public void ToFile<T>(string path, char delimiter)
         {
             if (_instances == null || string.IsNullOrEmpty(path)) return;
-            if (_instances.Length == 0) return;
+            if (!_instances.Any()) return;
             _delimiter = delimiter;
             using (var writer = new StreamWriter(path))
             {
