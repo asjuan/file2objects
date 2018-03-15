@@ -1,7 +1,20 @@
 # file2objects
 Intended for .Net programmers. Read a file and map to objects in one go.
 
-This library can read txt files and produce C# objects. It can also persist txt files from arrays of objects.
+This library is intended to produce C# objects out of files or strings. It can also persist txt files from arrays of objects.
+
+Split and map a string
+======================
+
+Split method helps to perform an in-memory mapping from a string that represents a set of objects.
+
+Example 
+```
+var representation = "ID\tDESC\tORDERID\tQTTY\tPRIORITY\tPRICE\n1\tCake\t1020\t2\tTRUE\t5.0\n2\tCoffee\t1020\t1\tFALSE\t1.0";
+var details = PlainTextReader.Split(representation, "\n")
+        .DelimitBy(ColumnDelimiter.Tab)
+        .GetAListOf<OrderDetail>();
+```
 
 Reading from a txt file
 =======================
