@@ -117,5 +117,14 @@ namespace tests
                 .DelimitBy(ColumnDelimiter.Pipe)
                 .GetAListOf<ActivityLog>();
         }
+        [TestMethod]
+        public void ShouldMapFromText()
+        {
+            var single = "ID\tDESC\tORDERID\tQTTY\tPRIORITY\tPRICE\n1\tCake\t1020\t2\tTRUE\t5.0\n2\tCoffee\t1020\t1\tFALSE\t1.0\n3\tBagel\t1021\t3\tFALSE\t1.5\n4\tPizza\t1099\t1\tTRUE\t2.5\n5\tSoda\t1103\t1\tFALSE\t0.52";
+            var details = PlainTextReader.Split(single, "\n")
+                    .DelimitBy(ColumnDelimiter.Tab)
+                    .GetAListOf<OrderDetail>();
+            Assert.AreEqual(details.FirstOrDefault().Description, "Cake");
+        }
     }
 }
