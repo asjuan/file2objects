@@ -39,6 +39,7 @@
     <Compile Include="BaseRetriever.cs" />
     <Compile Include="ReadCommand.cs" />
     <Compile Include="ReadConfigurator.cs" />
+    <Compile Include="ShortResolver.cs" />
     <Compile Include="SqlStringWriter.cs" />
     <Compile Include="SqlInsertsCommand.cs" />
     <Compile Include="SQLizeme.cs" />

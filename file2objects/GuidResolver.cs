@@ -7,7 +7,7 @@ namespace file2objects
         public IParseResolver GetResolver(string name)
         {
             if (name.Contains("Guid")) return this;
-            return new NullResolver().GetResolver(name);
+            return new ShortResolver().GetResolver(name);
         }
 
         public object Parse(string value)
