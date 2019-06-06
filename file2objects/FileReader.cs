@@ -41,6 +41,9 @@ namespace file2objects
                     (values, pn, pos) =>
                     {
                         var index = header.ToList().FindIndex(t => t.ToUpper().Equals(pn.ToUpper()));
+                        if (index == -1) {
+                            throw new InvalidDataException("File type and DTO does not match");
+                        }
                         return values[index];
                     })).ToList();
             }
