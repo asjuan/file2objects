@@ -41,7 +41,7 @@ namespace tests
         [ExpectedException(typeof(InvalidDataException))]
         public void ShouldHandleInvalidFileType()
         {
-            _orderDetails = PlainTextReader.From(@"..\..\Resources\InvalidLog.txt")
+            PlainTextReader.From(@"..\..\Resources\InvalidLog.txt")
                    .DelimitBy(ColumnDelimiter.Comma)
                    .GetAListOf<ToDoItem>(
                    new MapperConfiguration
